@@ -7,17 +7,19 @@ public class Novice {
     private int attract;
     int health;
     Bag pocket;
+    Item itemLog;
     private int exp;
     private String noviceName;
     Object Novice;
 
     // Constructor
-    public Novice(int initialHealth,String name,Bag initialMoney) {
+    public Novice(int initialHealth,String name,Bag initialMoney,Item initialItem) {
         health = initialHealth;
         attract = 25;
         pocket = initialMoney;
         exp = 0;
         noviceName = name;
+        itemLog = initialItem;
     }
 
     // Method

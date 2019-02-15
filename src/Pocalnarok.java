@@ -18,9 +18,7 @@ public class Pocalnarok {
     //Constructor    
     public Pocalnarok(){
         reader = new Scanner (System.in);
-        
     }
-    
     
     //Method
     public String inputSelecting(){
@@ -47,6 +45,7 @@ public class Pocalnarok {
         }
         else if(inputValue.startsWith("B")){
           System.out.println("You Select Buy Item");  
+          player.itemLog.whatBuy(player);
         }
         else if(inputValue.startsWith("C")){
           System.out.println("You Select Kill");   
@@ -66,7 +65,7 @@ public class Pocalnarok {
     }
     
     
-    
+       
     public static void main(String args[]) {
         int gameStatusReturn;
         System.out.println("Game Start");
@@ -79,8 +78,10 @@ public class Pocalnarok {
          //Create Bag
         Bag userBag = new Bag(1000);
          
+        //Createitem
+        Item itempocket = new Item();
         //Create Novice
-        Novice player = new Novice(100,gameUser.gamePlayerName,userBag);
+        Novice player = new Novice(100,gameUser.gamePlayerName,userBag,itempocket);
         int i=1;
         // Call Initail Value to start Games
         player.startGame(player.health,userBag);
