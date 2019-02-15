@@ -48,7 +48,8 @@ public class Pocalnarok {
           player.itemLog.whatBuy(player);
         }
         else if(inputValue.startsWith("C")){
-          System.out.println("You Select Kill");   
+          System.out.println("You Select Kill"); 
+          player.killing(player);
         }
         else if(inputValue.startsWith("D")){
             System.out.println("You Select View Info"); 
