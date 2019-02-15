@@ -1,4 +1,4 @@
-import java.io.*;
+//import java.io.*;
 
 /*From Old Novice Class */
 public class Novice {
@@ -8,14 +8,16 @@ public class Novice {
     int health;
     int money;
     private int exp;
+    private String noviceName;
     Object Novice;
 
     // Constructor
-    public Novice(int initialHealth) {
+    public Novice(int initialHealth,String name) {
         health = initialHealth;
         attract = 25;
         money = 1000;
         exp = 0;
+        noviceName = name;
     }
 
     // Method
@@ -33,7 +35,7 @@ public class Novice {
             System.out.println("#### You are Killing ####");
             System.out.println("---Congratulation You got 10 exp  and 25 Attract for this Activity ---");
         } else {
-            System.out.println("BOT: Your cannot kill him you don't have a power !");
+            System.out.println("Your cannot kill him you don't have a power !");
         }
         return killer;
     }
@@ -51,6 +53,7 @@ public class Novice {
         System.out.println("Your Health now is : " + info.health);
         System.out.println("Your Attract now is : " + info.attract);
         System.out.println("Your Exp now is : " + info.exp);
+        System.out.println("Your Money is:"+info.money);
         System.out.println("----------------------------");
     }
 

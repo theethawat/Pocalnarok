@@ -10,20 +10,28 @@
 import java.util.*;
 public class Pocalnarok {
     //Field
-    private Scanner gameSelection;
-    
-    
+    private Scanner gameSelectionScanner;
+    private Scanner gamePlayerNameScanner;
+    private Novice gamePlayerNovice;
+    private String  gamePlayerName;
     //Constructor    
     public Pocalnarok(){
-        gameSelection = new Scanner (System.in);
+        gameSelectionScanner = new Scanner (System.in);
+        gamePlayerNameScanner = new Scanner(System.in);
     }
     
     
     //Method
     public String inputSelecting(){
-        String inputChoice = gameSelection.nextLine();
+        String inputChoice = gameSelectionScanner.nextLine();
         return inputChoice.trim();
     }
+    
+    public String inputName(){
+        String nameInput = gamePlayerNameScanner.nextLine();
+        return nameInput.trim();
+    }
+    
     
     public void startControl(){
         System.out.println("Selecting the thing that you want to do");
@@ -53,12 +61,18 @@ public class Pocalnarok {
     
     public static void main(String args[]) {
         System.out.println("Game Start");
+        //Input Name
+        System.out.println("Enter Your Name of Novice:");
+        Pocalnarok gameUser = new Pocalnarok();
+        gameUser.gamePlayerName = gameUser.inputName();
+        System.out.println("Your Name is "+gameUser.gamePlayerName);
+        
         //Create Novice
-        Novice player = new Novice(100);
+        Novice player = new Novice(100,gameUser.gamePlayerName);
         int i=1;
         // Call Initail Value to start Games
         player.startGame(player.health,player.money);
-        Pocalnarok gameControl = new Pocalnarok();
-        gameControl.startControl();
+        
+        gameUser.startControl();
     }
 }
