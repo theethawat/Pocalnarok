@@ -10,26 +10,26 @@
 import java.util.*;
 public class Pocalnarok {
     //Field
-    private Scanner gameSelectionScanner;
-    private Scanner gamePlayerNameScanner;
+    private Scanner reader;
+
     private Novice gamePlayerNovice;
     private String  gamePlayerName;
     
     //Constructor    
     public Pocalnarok(){
-        gameSelectionScanner = new Scanner (System.in);
-        gamePlayerNameScanner = new Scanner(System.in);
+        reader = new Scanner (System.in);
+        
     }
     
     
     //Method
     public String inputSelecting(){
-        String inputChoice = gameSelectionScanner.nextLine();
+        String inputChoice = reader.nextLine();
         return inputChoice.trim();
     }
     
     public String inputName(){
-        String nameInput = gamePlayerNameScanner.nextLine();
+        String nameInput = reader.nextLine();
         return nameInput.trim();
     }
     
