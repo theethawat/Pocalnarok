@@ -14,6 +14,7 @@ public class Pocalnarok {
     private Scanner gamePlayerNameScanner;
     private Novice gamePlayerNovice;
     private String  gamePlayerName;
+    
     //Constructor    
     public Pocalnarok(){
         gameSelectionScanner = new Scanner (System.in);
@@ -32,16 +33,13 @@ public class Pocalnarok {
         return nameInput.trim();
     }
     
-    
-    public void startControl(){
+    public void startControl(Novice player){
         System.out.println("Selecting the thing that you want to do");
         System.out.println("A) Add Money  B) Buy Item  C) Kill  D) Viewinfo");
         System.out.println(">>");
+        
         //Selecting Activity
         String inputValue = inputSelecting();
-        /*For Debug
-        System.out.println(inputValue);
-        */
         if(inputValue.startsWith("A")){
           System.out.println("You Select Add Money");
         }
@@ -53,11 +51,14 @@ public class Pocalnarok {
         }
         else if(inputValue.startsWith("D")){
             System.out.println("You Select View Info"); 
+            player.monitor(player);
         }
         else{
             System.out.println("Please type only A, B , C , D");
         }
     }
+    
+    
     
     public static void main(String args[]) {
         System.out.println("Game Start");
@@ -67,12 +68,15 @@ public class Pocalnarok {
         gameUser.gamePlayerName = gameUser.inputName();
         System.out.println("Your Name is "+gameUser.gamePlayerName);
         
+         //Create Bag
+        Bag userBag = new Bag(1000);
+         
         //Create Novice
-        Novice player = new Novice(100,gameUser.gamePlayerName);
+        Novice player = new Novice(100,gameUser.gamePlayerName,userBag.money);
         int i=1;
         // Call Initail Value to start Games
         player.startGame(player.health,player.money);
         
-        gameUser.startControl();
+        gameUser.startControl(player);
     }
 }

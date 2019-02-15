@@ -12,10 +12,10 @@ public class Novice {
     Object Novice;
 
     // Constructor
-    public Novice(int initialHealth,String name) {
+    public Novice(int initialHealth,String name,int initialMoney) {
         health = initialHealth;
         attract = 25;
-        money = 1000;
+        money = initialMoney;
         exp = 0;
         noviceName = name;
     }

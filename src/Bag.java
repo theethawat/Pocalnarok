@@ -9,5 +9,9 @@
  * @author theet
  */
 public class Bag {
+    int money;
     
+    public Bag(int userMoney){
+        money = userMoney;
+    }
 }
