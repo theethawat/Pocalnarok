@@ -6,25 +6,25 @@ public class Novice {
     // Field
     private int attract;
     int health;
-    int money;
+    Bag pocket;
     private int exp;
     private String noviceName;
     Object Novice;
 
     // Constructor
-    public Novice(int initialHealth,String name,int initialMoney) {
+    public Novice(int initialHealth,String name,Bag initialMoney) {
         health = initialHealth;
         attract = 25;
-        money = initialMoney;
+        pocket = initialMoney;
         exp = 0;
         noviceName = name;
     }
 
     // Method
-    public void startGame(int initHealth,int initMoney) {
+    public void startGame(int initHealth,Bag initMoney) {
         System.out.println("----------------------------");
         System.out.println("Game Start Please Selected the Method");
-        System.out.println("Your Health now is : " + initHealth +" Your Money is now:"+initMoney);
+        System.out.println("Your Health now is : " + initHealth +" Your Money is now:"+initMoney.money);
     }
 
     public Novice killing(Novice killer) {
@@ -53,7 +53,7 @@ public class Novice {
         System.out.println("Your Health now is : " + info.health);
         System.out.println("Your Attract now is : " + info.attract);
         System.out.println("Your Exp now is : " + info.exp);
-        System.out.println("Your Money is:"+info.money);
+        System.out.println("Your Money is:"+info.pocket.money);
         System.out.println("----------------------------");
     }
 

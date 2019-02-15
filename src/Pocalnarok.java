@@ -33,15 +33,17 @@ public class Pocalnarok {
         return nameInput.trim();
     }
     
-    public void startControl(Novice player){
+    public int startControl(Novice player, Bag userBag){
+     
         System.out.println("Selecting the thing that you want to do");
-        System.out.println("A) Add Money  B) Buy Item  C) Kill  D) Viewinfo");
+        System.out.println("A) Add Money  B) Buy Item  C) Kill  D) Viewinfo E) Exit");
         System.out.println(">>");
         
         //Selecting Activity
         String inputValue = inputSelecting();
         if(inputValue.startsWith("A")){
           System.out.println("You Select Add Money");
+          userBag.selectAddMoneyMethod(userBag);
         }
         else if(inputValue.startsWith("B")){
           System.out.println("You Select Buy Item");  
@@ -53,14 +55,20 @@ public class Pocalnarok {
             System.out.println("You Select View Info"); 
             player.monitor(player);
         }
-        else{
-            System.out.println("Please type only A, B , C , D");
+        else if(inputValue.startsWith("E")){
+            System.out.println("You Select Exit"); 
+            System.exit(0);
         }
+        else{
+            System.out.println("Please type only A, B , C , D,E");
+        }
+        return 0;
     }
     
     
     
     public static void main(String args[]) {
+        int gameStatusReturn;
         System.out.println("Game Start");
         //Input Name
         System.out.println("Enter Your Name of Novice:");
@@ -72,11 +80,13 @@ public class Pocalnarok {
         Bag userBag = new Bag(1000);
          
         //Create Novice
-        Novice player = new Novice(100,gameUser.gamePlayerName,userBag.money);
+        Novice player = new Novice(100,gameUser.gamePlayerName,userBag);
         int i=1;
         // Call Initail Value to start Games
-        player.startGame(player.health,player.money);
-        
-        gameUser.startControl(player);
+        player.startGame(player.health,userBag);
+        do{
+           gameStatusReturn =  gameUser.startControl(player,userBag);
+        }
+        while(gameStatusReturn == 0);
     }
 }
