@@ -19,7 +19,8 @@ public class Bag {
         reader = new Scanner (System.in);
         randomNumber = new Random();
     }
-    public void selectAddMoneyMethod(Bag userBag){
+    public void selectAddMoneyMethod(){
+        Bag userBag = new Bag(100);
         int inputMethod;
         System.out.println("Please Enter the Method that you want to Add Money");
         System.out.println("Integer Input Only 1) Paid Money from Cash Card 2) Random Me money");

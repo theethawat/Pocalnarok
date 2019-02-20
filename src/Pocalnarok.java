@@ -23,12 +23,12 @@ public class Pocalnarok {
     //Method
     public String inputSelecting(){
         String inputChoice = reader.nextLine();
-        return inputChoice.trim();
+        return inputChoice;
     }
     
     public String inputName(){
         String nameInput = reader.nextLine();
-        return nameInput.trim();
+        return nameInput;
     }
     
     public int startControl(Novice player, Bag userBag){
